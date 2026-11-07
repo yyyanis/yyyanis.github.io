@@ -69,6 +69,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--b);outline-offset:3
 .foot-btns{display:flex;gap:12px;flex-wrap:wrap}
 .foot-meta{display:flex;gap:28px;margin-top:56px;padding-top:20px;border-top:1px solid #5B5EE0;font-size:14px}
 .foot-meta a{color:var(--bg)}
+.foot-note{margin-left:auto;opacity:.75}
 .foot-meta span{margin-left:auto;color:#C9CAF7}
 /* project page */
 .crumb{margin:40px 0 18px;font-size:15px;color:var(--mut)}

@@ -8,6 +8,7 @@
     var key = sessionStorage.getItem('cv');
     if(key && window.CV_FILES[key]){
       document.querySelectorAll('[data-cv]').forEach(function(a){
+        a.setAttribute('data-umami-event-profile', key);
         a.href = window.SITE_ROOT + 'cv/Yanis_Bendehane_CV_' + window.CV_FILES[key] + '_' + a.dataset.cv + '.pdf';
       });
     }
