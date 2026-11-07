@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weather station for ships, Yanis Bendehane</title>
+<meta name="description" content="An autonomous weather station meant to equip ships. An Arduino reads its sensors, adds time and position, and logs every measurement to an SD card. Op">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E31D1'/%3E%3Cpath d='M10 26V6M10 21c0-7 12-6 12-12' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap top">
+  <a class="brand" href="../index.html" aria-label="Yanis Bendehane, home"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path d="M6 26V2M6 20C6 12 22 14 22 6" fill="none" stroke="#2E31D1" stroke-width="3" stroke-linecap="round"/><circle cx="6" cy="22" r="4" fill="#2E31D1"/><circle cx="22" cy="6" r="4" fill="#F5F5F7" stroke="#2E31D1" stroke-width="3"/><circle cx="36" cy="14" r="4" fill="#F5F5F7" stroke="#2E31D1" stroke-width="3" stroke-dasharray="2 2"/></svg><span>Yanis Bendehane</span></a>
+  <nav aria-label="Main">
+    <a href="../index.html#log">Log</a>
+    <a href="../index.html#stack">Stack</a>
+    <a href="#cv">CV</a>
+    <a class="btn small" href="mailto:bendehane.yanispro@gmail.com">Email me</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+  <p class="crumb"><a href="../index.html#log">Commit log</a> <span aria-hidden="true">/</span> <span class="hash">a551a62</span></p>
+  <h1 class="title long" style="--w:7"><span>Weather station for ships</span></h1>
+  
+  <div class="case-head">
+    <div><p class="lead">An autonomous weather station meant to equip ships. An Arduino reads its sensors, adds time and position, and logs every measurement to an SD card. Operating modes are driven by interrupts and shown on an RGB LED. We modeled the system in UML and SysML before writing code.</p><ul class="chips" aria-label="Technologies"><li>C++</li><li>Arduino</li><li>I2C</li><li>SPI</li><li>UART</li><li>UML</li><li>SysML</li></ul></div>
+    <dl class="meta-grid"><div><dt>Date</dt><dd>Fall 2024</dd></div><div><dt>Context</dt><dd>Embedded Systems module, CESI</dd></div><div><dt>Team</dt><dd>Group project</dd></div></dl>
+  </div>
+  
+    <section class="fig" aria-labelledby="f1">
+      <div class="fig-text"><p class="fnum">Fig. 1</p><h2 id="f1">Hardware and buses</h2><p>Each component talks to the Arduino over the bus it was designed for.</p></div>
+      <figure class="fig-panel"><svg viewBox="0 0 1000 330" role="img" style="width:100%;height:auto;display:block;overflow:visible"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E31D1"/></marker></defs><rect class="draw" pathLength="1" x="400" y="140" width="200" height="90" rx="6" fill="#E3E4FA" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.00s"/><text class="lbl" x="500.0" y="182.0" text-anchor="middle" style="animation-delay:0.35s">Arduino Uno</text><text class="lbl sub" x="500.0" y="201.0" text-anchor="middle" style="animation-delay:0.40s">C++ firmware</text><rect class="draw" pathLength="1" x="30" y="40" width="230" height="64" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.30s"/><text class="lbl" x="145.0" y="69.0" text-anchor="middle" style="animation-delay:0.65s">Temperature, humidity</text><text class="lbl sub" x="145.0" y="88.0" text-anchor="middle" style="animation-delay:0.70s">pressure</text><rect class="draw" pathLength="1" x="30" y="250" width="230" height="64" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.40s"/><text class="lbl" x="145.0" y="279.0" text-anchor="middle" style="animation-delay:0.75s">Real-time clock</text><text class="lbl sub" x="145.0" y="298.0" text-anchor="middle" style="animation-delay:0.80s">timestamps</text><path class="draw" pathLength="1" d="M260 72 L320 72 L320 282 L260 282" fill="none" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.60s"/><path class="draw" pathLength="1" d="M320 185 L398 185" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.70s"/><text class="lbl" x="330" y="176" text-anchor="start" style="animation-delay:0.90s">I2C</text><rect class="draw" pathLength="1" x="740" y="40" width="230" height="64" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.40s"/><text class="lbl" x="855.0" y="69.0" text-anchor="middle" style="animation-delay:0.75s">SD card</text><text class="lbl sub" x="855.0" y="88.0" text-anchor="middle" style="animation-delay:0.80s">CSV log</text><path class="draw" pathLength="1" d="M600 165 C680 165 680 72 738 72" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.80s"/><text class="lbl" x="690" y="60" text-anchor="start" style="animation-delay:1.00s">SPI</text><rect class="draw" pathLength="1" x="740" y="250" width="230" height="64" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.50s"/><text class="lbl" x="855.0" y="279.0" text-anchor="middle" style="animation-delay:0.85s">GPS module</text><text class="lbl sub" x="855.0" y="298.0" text-anchor="middle" style="animation-delay:0.90s">position</text><path class="draw" pathLength="1" d="M600 205 C680 205 680 282 738 282" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.90s"/><text class="lbl" x="690" y="270" text-anchor="start" style="animation-delay:1.00s">UART</text><rect class="draw" pathLength="1" x="420" y="10" width="160" height="56" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.50s"/><text class="lbl" x="500.0" y="44.0" text-anchor="middle" style="animation-delay:0.85s">Light sensor</text><path class="draw" pathLength="1" d="M500 66 L500 138" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.90s"/><circle class="pop" cx="500" cy="300" r="14" fill="#2E31D1" style="animation-delay:1.2s"/><path class="draw" pathLength="1" d="M500 230 L500 284" fill="none" stroke="#2E31D1" stroke-width="2" style="animation-delay:1.10s"/><text class="lbl sub" x="478" y="305" text-anchor="end" style="animation-delay:1.30s">RGB LED shows the current mode</text></svg><button type="button" class="replay">Replay</button></figure>
+    </section>
+    <section class="fig" aria-labelledby="f2">
+      <div class="fig-text"><p class="fnum">Fig. 2</p><h2 id="f2">From a reading to a log line</h2><p>Every cycle produces one timestamped, geolocated line in a CSV file.</p></div>
+      <figure class="fig-panel"><svg viewBox="0 0 1000 205" role="img" style="width:100%;height:auto;display:block;overflow:visible"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E31D1"/></marker></defs><rect class="draw" pathLength="1" x="5" y="40" width="210" height="70" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.00s"/><text class="lbl" x="110.0" y="72.0" text-anchor="middle" style="animation-delay:0.35s">Read sensors</text><text class="lbl sub" x="110.0" y="91.0" text-anchor="middle" style="animation-delay:0.40s">on a timer</text><rect class="draw" pathLength="1" x="255" y="40" width="210" height="70" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.30s"/><text class="lbl" x="360.0" y="72.0" text-anchor="middle" style="animation-delay:0.65s">Add time and position</text><text class="lbl sub" x="360.0" y="91.0" text-anchor="middle" style="animation-delay:0.70s">RTC and GPS</text><path class="draw" pathLength="1" d="M215 75 L253 75" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.20s"/><rect class="draw" pathLength="1" x="505" y="40" width="210" height="70" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.60s"/><text class="lbl" x="610.0" y="72.0" text-anchor="middle" style="animation-delay:0.95s">Format a line</text><text class="lbl sub" x="610.0" y="91.0" text-anchor="middle" style="animation-delay:1.00s">CSV</text><path class="draw" pathLength="1" d="M465 75 L503 75" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.50s"/><rect class="draw" pathLength="1" x="755" y="40" width="210" height="70" rx="6" fill="#E3E4FA" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.90s"/><text class="lbl" x="860.0" y="72.0" text-anchor="middle" style="animation-delay:1.25s">Append to SD card</text><text class="lbl sub" x="860.0" y="91.0" text-anchor="middle" style="animation-delay:1.30s">timestamped log</text><path class="draw" pathLength="1" d="M715 75 L753 75" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.80s"/><path class="fade" d="M110 110 C110 170 860 170 860 112" fill="none" stroke="#2E31D1" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)" style="animation-delay:1.40s"/><text class="lbl sub" x="500" y="192" text-anchor="middle" style="animation-delay:1.60s">repeats for each measurement cycle</text></svg><button type="button" class="replay">Replay</button></figure>
+    </section>
+  <nav class="pn" aria-label="Other projects"><a href="game-of-life.html"><small>Newer</small><strong>Game of Life</strong></a><a class="older" href="secure-safe.html"><small>Older</small><strong>Secure safe prototype</strong></a></nav>
+</main>
+<footer id="cv" class="foot">
+  <div class="wrap">
+    <p class="foot-line ">Your lab could be<br>the next commit.</p>
+    <div class="foot-row">
+      <a class="foot-mail" href="mailto:bendehane.yanispro@gmail.com">bendehane.yanispro@gmail.com</a>
+      <div class="foot-btns">
+        <a class="btn light" data-cv="en" href="../cv/Yanis_Bendehane_CV_00_general_en.pdf" download>CV in English</a>
+        <a class="btn ghost" data-cv="fr" href="../cv/Yanis_Bendehane_CV_00_general_fr.pdf" download>CV en français</a>
+      </div>
+    </div>
+    <div class="foot-meta"><a href="https://www.linkedin.com/in/yanisb9/">LinkedIn</a><span>Aix-en-Provence, France</span></div>
+  </div>
+</footer>
+<script>window.CV_FILES={"general": "00_general", "software": "01_software", "data": "02_data-ai", "embedded": "03_embedded-iot", "network": "04_networks-security", "web": "05_web-backend"};window.SITE_ROOT="../";</script>
+</body>
+</html>

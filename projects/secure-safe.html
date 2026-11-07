@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secure safe prototype, Yanis Bendehane</title>
+<meta name="description" content="A safe that opens only with the right switch code and an access card. We went from truth tables and Karnaugh maps to a logic circuit, then built a wor">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E31D1'/%3E%3Cpath d='M10 26V6M10 21c0-7 12-6 12-12' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap top">
+  <a class="brand" href="../index.html" aria-label="Yanis Bendehane, home"><svg width="44" height="28" viewBox="0 0 44 28" aria-hidden="true"><path d="M6 26V2M6 20C6 12 22 14 22 6" fill="none" stroke="#2E31D1" stroke-width="3" stroke-linecap="round"/><circle cx="6" cy="22" r="4" fill="#2E31D1"/><circle cx="22" cy="6" r="4" fill="#F5F5F7" stroke="#2E31D1" stroke-width="3"/><circle cx="36" cy="14" r="4" fill="#F5F5F7" stroke="#2E31D1" stroke-width="3" stroke-dasharray="2 2"/></svg><span>Yanis Bendehane</span></a>
+  <nav aria-label="Main">
+    <a href="../index.html#log">Log</a>
+    <a href="../index.html#stack">Stack</a>
+    <a href="#cv">CV</a>
+    <a class="btn small" href="mailto:bendehane.yanispro@gmail.com">Email me</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+  <p class="crumb"><a href="../index.html#log">Commit log</a> <span aria-hidden="true">/</span> <span class="hash">1a33761</span></p>
+  <h1 class="title long" style="--w:9"><span>Secure safe prototype</span></h1>
+  
+  <div class="case-head">
+    <div><p class="lead">A safe that opens only with the right switch code and an access card. We went from truth tables and Karnaugh maps to a logic circuit, then built a working prototype on Arduino.</p><ul class="chips" aria-label="Technologies"><li>Logic design</li><li>Karnaugh maps</li><li>Arduino</li></ul></div>
+    <dl class="meta-grid"><div><dt>Date</dt><dd>Oct – Nov 2023</dd></div><div><dt>Context</dt><dd>Electronics module, CESI</dd></div><div><dt>Team</dt><dd>Team of 4</dd></div></dl>
+  </div>
+  
+    <section class="fig" aria-labelledby="f1">
+      <div class="fig-text"><p class="fnum">Fig. 1</p><h2 id="f1">From requirement to prototype</h2><p>Each step makes the access rule more concrete.</p></div>
+      <figure class="fig-panel"><svg viewBox="0 0 1000 120" role="img" style="width:100%;height:auto;display:block;overflow:visible"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E31D1"/></marker></defs><rect class="draw" pathLength="1" x="5" y="30" width="160" height="70" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.00s"/><text class="lbl" x="85.0" y="62.0" text-anchor="middle" style="animation-delay:0.35s">Inputs</text><text class="lbl sub" x="85.0" y="81.0" text-anchor="middle" style="animation-delay:0.40s">switch code, card</text><rect class="draw" pathLength="1" x="205" y="30" width="160" height="70" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.30s"/><text class="lbl" x="285.0" y="62.0" text-anchor="middle" style="animation-delay:0.65s">Truth table</text><text class="lbl sub" x="285.0" y="81.0" text-anchor="middle" style="animation-delay:0.70s">every combination</text><path class="draw" pathLength="1" d="M165 65 L203 65" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.20s"/><rect class="draw" pathLength="1" x="405" y="30" width="160" height="70" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.60s"/><text class="lbl" x="485.0" y="62.0" text-anchor="middle" style="animation-delay:0.95s">Karnaugh map</text><text class="lbl sub" x="485.0" y="81.0" text-anchor="middle" style="animation-delay:1.00s">simplified logic</text><path class="draw" pathLength="1" d="M365 65 L403 65" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.50s"/><rect class="draw" pathLength="1" x="605" y="30" width="160" height="70" rx="6" fill="#F5F5F7" stroke="#2E31D1" stroke-width="2" style="animation-delay:0.90s"/><text class="lbl" x="685.0" y="62.0" text-anchor="middle" style="animation-delay:1.25s">Logic circuit</text><text class="lbl sub" x="685.0" y="81.0" text-anchor="middle" style="animation-delay:1.30s">gates</text><path class="draw" pathLength="1" d="M565 65 L603 65" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:0.80s"/><rect class="draw" pathLength="1" x="805" y="30" width="160" height="70" rx="6" fill="#E3E4FA" stroke="#2E31D1" stroke-width="2" style="animation-delay:1.20s"/><text class="lbl" x="885.0" y="62.0" text-anchor="middle" style="animation-delay:1.55s">Arduino</text><text class="lbl sub" x="885.0" y="81.0" text-anchor="middle" style="animation-delay:1.60s">working prototype</text><path class="draw" pathLength="1" d="M765 65 L803 65" fill="none" stroke="#2E31D1" stroke-width="2" marker-end="url(#ah)" style="animation-delay:1.10s"/></svg><button type="button" class="replay">Replay</button></figure>
+    </section>
+    <section class="fig" aria-labelledby="f2">
+      <div class="fig-text"><p class="fnum">Fig. 2</p><h2 id="f2">Simplifying the logic</h2><p>A Karnaugh map turns a truth table into the smallest set of gates.</p></div>
+      <figure class="fig-panel"><svg viewBox="0 0 1000 320" role="img" style="width:100%;height:auto;display:block;overflow:visible"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E31D1"/></marker></defs><path class="draw" pathLength="1" d="M300 40 L300 264" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.00s"/><path class="draw" pathLength="1" d="M300 40 L524 40" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.00s"/><path class="draw" pathLength="1" d="M356 40 L356 264" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.05s"/><path class="draw" pathLength="1" d="M300 96 L524 96" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.05s"/><path class="draw" pathLength="1" d="M412 40 L412 264" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.10s"/><path class="draw" pathLength="1" d="M300 152 L524 152" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.10s"/><path class="draw" pathLength="1" d="M468 40 L468 264" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.15s"/><path class="draw" pathLength="1" d="M300 208 L524 208" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.15s"/><path class="draw" pathLength="1" d="M524 40 L524 264" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.20s"/><path class="draw" pathLength="1" d="M300 264 L524 264" stroke="#2E31D1" stroke-width="1.6" style="animation-delay:0.20s"/><text class="lbl big" x="328.0" y="74.0" text-anchor="middle" style="animation-delay:0.40s">0</text><text class="lbl big" x="384.0" y="74.0" text-anchor="middle" style="animation-delay:0.42s">0</text><text class="lbl big" x="440.0" y="74.0" text-anchor="middle" style="animation-delay:0.44s">0</text><text class="lbl big" x="496.0" y="74.0" text-anchor="middle" style="animation-delay:0.46s">1</text><text class="lbl big" x="328.0" y="130.0" text-anchor="middle" style="animation-delay:0.48s">0</text><text class="lbl big" x="384.0" y="130.0" text-anchor="middle" style="animation-delay:0.50s">1</text><text class="lbl big" x="440.0" y="130.0" text-anchor="middle" style="animation-delay:0.52s">1</text><text class="lbl big" x="496.0" y="130.0" text-anchor="middle" style="animation-delay:0.54s">0</text><text class="lbl big" x="328.0" y="186.0" text-anchor="middle" style="animation-delay:0.56s">0</text><text class="lbl big" x="384.0" y="186.0" text-anchor="middle" style="animation-delay:0.58s">1</text><text class="lbl big" x="440.0" y="186.0" text-anchor="middle" style="animation-delay:0.60s">1</text><text class="lbl big" x="496.0" y="186.0" text-anchor="middle" style="animation-delay:0.62s">0</text><text class="lbl big" x="328.0" y="242.0" text-anchor="middle" style="animation-delay:0.64s">0</text><text class="lbl big" x="384.0" y="242.0" text-anchor="middle" style="animation-delay:0.66s">0</text><text class="lbl big" x="440.0" y="242.0" text-anchor="middle" style="animation-delay:0.68s">0</text><text class="lbl big" x="496.0" y="242.0" text-anchor="middle" style="animation-delay:0.70s">0</text><rect class="draw" pathLength="1" x="362" y="102" width="100" height="100" rx="14" fill="none" stroke="#15166B" stroke-width="3" style="animation-delay:1s"/><text class="lbl" x="554" y="152" text-anchor="start" style="animation-delay:1.30s">Group the 1s,</text><text class="lbl" x="554" y="176" text-anchor="start" style="animation-delay:1.35s">get a shorter expression.</text><text class="lbl sub" x="300" y="298" text-anchor="start" style="animation-delay:1.50s">Illustrative map, not the original exercise.</text></svg><button type="button" class="replay">Replay</button></figure>
+    </section>
+  <nav class="pn" aria-label="Other projects"><a href="weather-station.html"><small>Newer</small><strong>Weather station for ships</strong></a><span></span></nav>
+</main>
+<footer id="cv" class="foot">
+  <div class="wrap">
+    <p class="foot-line ">Your lab could be<br>the next commit.</p>
+    <div class="foot-row">
+      <a class="foot-mail" href="mailto:bendehane.yanispro@gmail.com">bendehane.yanispro@gmail.com</a>
+      <div class="foot-btns">
+        <a class="btn light" data-cv="en" href="../cv/Yanis_Bendehane_CV_00_general_en.pdf" download>CV in English</a>
+        <a class="btn ghost" data-cv="fr" href="../cv/Yanis_Bendehane_CV_00_general_fr.pdf" download>CV en français</a>
+      </div>
+    </div>
+    <div class="foot-meta"><a href="https://www.linkedin.com/in/yanisb9/">LinkedIn</a><span>Aix-en-Provence, France</span></div>
+  </div>
+</footer>
+<script>window.CV_FILES={"general": "00_general", "software": "01_software", "data": "02_data-ai", "embedded": "03_embedded-iot", "network": "04_networks-security", "web": "05_web-backend"};window.SITE_ROOT="../";</script>
+</body>
+</html>
