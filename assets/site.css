@@ -49,6 +49,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--b);outline-offset:3
 .row:has(.row-link):hover{background:#EAEBFB;box-shadow:-12px 0 0 #EAEBFB,12px 0 0 #EAEBFB}
 .row:has(.row-link):hover h3{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 .ctx{margin:2px 0 0;font-size:15px;color:var(--mut)}
+.org{position:relative;z-index:2;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--chip);transition:color .15s,text-decoration-color .15s}
+.org:hover{color:var(--b);text-decoration-color:var(--b)}
+.row:has(.org:hover){background:none;box-shadow:none}
+.row:has(.org:hover) h3{text-decoration:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .txt{margin:6px 0 0;font-size:15px;max-width:62ch}
 .tags{grid-column:4;list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;align-content:flex-start}
 .tags li{font-size:13px;border:1px solid var(--chip);border-radius:6px;padding:2px 8px;color:#3A3C9E}
